@@ -1,0 +1,17 @@
+[project]
+name = "ysf-chan"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "langchain-ollama>=0.2.0",
+    "langchain>=0.3.3",
+    "python-dotenv>=1.0.1",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pyright>=1.1.385",
+    "ruff>=0.7.0",
+]
