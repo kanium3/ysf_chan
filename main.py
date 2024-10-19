@@ -1,15 +1,14 @@
 import os
-from langchain_ollama import OllamaLLM
-from langchain_core.prompts import ChatPromptTemplate
+
 from dotenv import load_dotenv
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_ollama import OllamaLLM
 
 load_dotenv()
 
+
 def main():
-    model = OllamaLLM(
-        model = os.environ["CHARA_MODEL"],
-        base_url=os.environ["BASE_URL"]
-    )
+    model = OllamaLLM(model=os.environ["CHARA_MODEL"], base_url=os.environ["BASE_URL"])
     template = """
 
 ## 設定
@@ -27,6 +26,7 @@ def main():
     chain = prompt | model
     res = chain.invoke({"question": "あなたはどこの高校の生徒ですか?"})
     print(res)
+
 
 if __name__ == "__main__":
     main()
